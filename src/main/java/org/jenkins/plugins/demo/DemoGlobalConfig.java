@@ -28,33 +28,10 @@ public class DemoGlobalConfig extends GlobalConfiguration {
     public boolean configure(StaplerRequest req, JSONObject o)
     throws FormException
     {
-        System.out.println("DemoGlobalConfig.configure()");
-        // Code commented out is from RobotConfig.java, it works
-        // Is the next line necessary to save the globalVar value? YES
-        // if not present, causes net.sf.json.JSONException: JSONObject["myStrings"]
-        // The json object is
-        // {"demoGlobalConfig":{"globalVar":"g","myStrings":[{"value":"h"},{"value":"t"}]}}
-        System.out.println(o);
         o = o.getJSONObject("demoGlobalConfig");
-        // after json looks like
-        // {"globalVar":"j","myStrings":[{"value":"k"},{"value":"l"}]}
-        System.out.println(o);
-        // Is next line necessary to save the local value? -> NO!!! IT IS NOT NEEDED!!!
-        //globalVar = o.getString("globalVar");
-        // The string is [{"value":"a"},{"value":"b"}]
-        System.out.println(o.getString("myStrings"));
-        // when comment out next line, the complex object is not saved
         req.bindJSON(this, o);
         save();
-        // Next line calls super, do we rally need to call the super?
-        //   -> No we don't. it works without it
-        //return super.configure(req, o);
         return true;
-
-        // Code below is from DockerPluginConfig.java, it does not seem to work :-(
-        //System.out.println("DemoGlobalConfig.configure()");
-        //req.bindJSON(this, o);
-        //return true;
     }
 
     public String getGlobalVar() {

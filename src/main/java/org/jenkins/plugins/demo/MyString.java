@@ -25,24 +25,6 @@ public class MyString extends AbstractDescribableImpl<MyString>
 
     @Extension
     public static class DescriptorImpl extends Descriptor<MyString> {
-
-        // Does this ctor cause the loading of the values in the UI? NO
-        // Is this ctor needed? Do not know. taking it out.
-        //public DescriptorImpl() {
-        //    System.out.println("MyString::DescriptorImpl.load()");
-        //    load();
-        //}
-        // no call to configure(), why?
-        //@Override
-        //public boolean configure(StaplerRequest req, JSONObject o)
-        //throws FormException
-        //{
-        //    System.out.println("MyString.configure()");
-        //    req.bindJSON(this, o);
-        //    save();
-        //    return true;
-        //}
-
         public String getDisplayName() {
             return "String value";
         }
