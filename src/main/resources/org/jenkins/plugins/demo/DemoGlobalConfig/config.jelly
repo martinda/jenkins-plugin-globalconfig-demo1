@@ -6,6 +6,9 @@
         <f:entry field="globalVar" title="Global Var">
             <f:textbox />
         </f:entry>
+        <f:entry title="String List">
+            <f:repeatableProperty field="myStrings" />
+        </f:entry>
     </f:section>
 
 </j:jelly>

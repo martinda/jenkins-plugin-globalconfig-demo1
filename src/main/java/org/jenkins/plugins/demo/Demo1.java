@@ -9,6 +9,8 @@ import hudson.tasks.BuildStepDescriptor;
 import hudson.tasks.Builder;
 
 import java.io.IOException;
+import java.io.PrintStream;
+import java.util.List;
 import java.lang.InterruptedException;
 
 import jenkins.model.GlobalConfiguration;
@@ -26,22 +28,22 @@ public class Demo1 extends Builder {
     @DataBoundConstructor
     public Demo1(String input1)
     {
-        System.out.println("Demo1()");
+        System.out.println("Demo1("+input1+")");
         this.input1 = input1;
     }
 
     public String getInput1() {
-        System.out.println("getInput1()");
+        System.out.println("getInput1() -> "+input1);
         return input1;
     }
 
     public void setGlobalVar(String globalVar) {
-        System.out.println("setGlobalVar()");
+        System.out.println("setGlobalVar("+globalVar+")");
         this.globalVar = globalVar;
     }
 
     public String getGlobalVar() {
-        System.out.println("getGlobalVar()");
+        System.out.println("getGlobalVar() -> "+globalVar);
         return globalVar;
     }
 
@@ -52,9 +54,15 @@ public class Demo1 extends Builder {
         BuildListener listener
     ) throws IOException, InterruptedException
     {
+        final PrintStream logger = listener.getLogger();
         demoGlobalConfig = GlobalConfiguration.all().get(DemoGlobalConfig.class);
-        System.out.println("Input 1: "+input1);
-        System.out.println("Global Var: "+demoGlobalConfig.getGlobalVar());
+        logger.println("Input 1: "+input1);
+        logger.println("Global Var: "+demoGlobalConfig.getGlobalVar());
+        List<MyString> strings = demoGlobalConfig.getMyStrings();
+        logger.println("Strings: "+strings);
+        for (MyString s : strings) {
+            logger.println("String value: "+s.getValue());
+        }
         return true;
     }
 
