@@ -20,6 +20,9 @@ plugin:
 DescriptorImpl::load()
 ```
 
+The plugin in its current state prints a lot of debug messages to the
+terminal.
+
 Visit the Jenkins global configuration page, look for the section called
 "Demo Global Config".
 
