@@ -31,4 +31,14 @@ public class Demo1Test {
         j.assertBuildStatusSuccess(build);
 
     }
+
+    @Test
+    public void roundtrip() throws Exception {
+        roundtrip(new Demo1("text"));
+    }
+
+    private void roundtrip(Demo1 before) throws Exception {
+        Demo1 after = j.configRoundtrip(before);
+        j.assertEqualBeans(before, after, "input1");
+    }
 }
