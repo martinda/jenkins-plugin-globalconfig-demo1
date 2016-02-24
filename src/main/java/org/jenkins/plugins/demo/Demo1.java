@@ -21,7 +21,6 @@ import org.kohsuke.stapler.DataBoundSetter;
 public class Demo1 extends Builder {
 
     private String input1;
-    private String globalVar;
 
     @DataBoundConstructor
     public Demo1(String input1)
@@ -33,16 +32,6 @@ public class Demo1 extends Builder {
     public String getInput1() {
         System.out.println("getInput1() -> "+input1);
         return input1;
-    }
-
-    public void setGlobalVar(String globalVar) {
-        System.out.println("setGlobalVar("+globalVar+")");
-        this.globalVar = globalVar;
-    }
-
-    public String getGlobalVar() {
-        System.out.println("getGlobalVar() -> "+globalVar);
-        return globalVar;
     }
 
     @Override
