@@ -10,6 +10,7 @@ import org.kohsuke.stapler.StaplerRequest;
 public class MyString extends AbstractDescribableImpl<MyString>
 {
 
+    private static final long serialVersionUID = 1L;
     private String value;
 
     @DataBoundConstructor
