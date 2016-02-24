@@ -20,8 +20,6 @@ import org.kohsuke.stapler.DataBoundSetter;
 
 public class Demo1 extends Builder {
 
-    private DemoGlobalConfig demoGlobalConfig;
-
     private String input1;
     private String globalVar;
 
