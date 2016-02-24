@@ -7,7 +7,13 @@
             <f:textbox />
         </f:entry>
         <f:entry title="String List">
-            <f:repeatableProperty field="myStrings" />
+            <f:repeatableProperty field="myStrings">
+                <f:entry>
+                    <div align="right">
+                        <f:repeatableDeleteButton />
+                    </div>
+                </f:entry>
+            </f:repeatableProperty>
         </f:entry>
     </f:section>
 
