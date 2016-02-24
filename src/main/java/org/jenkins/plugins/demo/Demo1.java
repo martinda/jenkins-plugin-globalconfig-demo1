@@ -42,13 +42,15 @@ public class Demo1 extends Builder {
     ) throws IOException, InterruptedException
     {
         final PrintStream logger = listener.getLogger();
-        demoGlobalConfig = GlobalConfiguration.all().get(DemoGlobalConfig.class);
+        DemoGlobalConfig demoGlobalConfig = GlobalConfiguration.all().get(DemoGlobalConfig.class);
         logger.println("Input 1: "+input1);
         logger.println("Global Var: "+demoGlobalConfig.getGlobalVar());
         List<MyString> strings = demoGlobalConfig.getMyStrings();
         logger.println("Strings: "+strings);
-        for (MyString s : strings) {
-            logger.println("String value: "+s.getValue());
+        if (strings != null) {
+          for (MyString s : strings) {
+              logger.println("String value: "+s.getValue());
+          }
         }
         return true;
     }
