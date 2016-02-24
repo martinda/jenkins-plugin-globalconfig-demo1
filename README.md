@@ -12,41 +12,8 @@ Run Jenkins using `hpi::run`
 mvn hpi:run
 ```
 
-Watch the Jenkins log. You should see the following message from the
-plugin:
+Watch the Jenkins log. You should messages that correspond to each
+action performed under the hood by Jenkins when you access the global
+configuration page or when you run the plugin. Use these messages to
+trace the execution in the code and learn how Jenkins operate.
 
-
-```
-DescriptorImpl::load()
-```
-
-The plugin in its current state prints a lot of debug messages to the
-terminal.
-
-Visit the Jenkins global configuration page, look for the section called
-"Demo Global Config".
-
-* Set a value for the the "Global Var"
-* Set a couple of values for the "String List" (click the Add button)
-
-Save the configuration page. Reopen it. The global value is present,
-but the list of strings is not. Why?
-
-Note that the config.xml was saved and does contain all the values,
-as shown here:
-
-```
-$ cat work/org.jenkins.plugins.demo.DemoGlobalConfig.xml
-<?xml version='1.0' encoding='UTF-8'?>
-<org.jenkins.plugins.demo.DemoGlobalConfig plugin="jenkins-plugin-demo1@1.0-SNAPSHOT">
-  <globalVar>a global value</globalVar>
-  <myStrings>
-    <org.jenkins.plugins.demo.MyString>
-      <value>value1</value>
-    </org.jenkins.plugins.demo.MyString>
-    <org.jenkins.plugins.demo.MyString>
-      <value>value2</value>
-    </org.jenkins.plugins.demo.MyString>
-  </myStrings>
-</org.jenkins.plugins.demo.DemoGlobalConfig>
-```
